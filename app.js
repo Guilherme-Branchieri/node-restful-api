@@ -11,8 +11,10 @@ app.use(
 
 app.use(express.json())
 
+
+
 //Carrega Router
-const personRoutes = require('./routes/personRoutes')
+const personRoutes = require('./src/routes/personRoutes')
 app.use('/person',personRoutes)
 
 
@@ -29,7 +31,7 @@ mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicluster.8temdef.mon
     })
 
 
-//Rota inicial/Endpoint
+
 
 
 //Listen port
