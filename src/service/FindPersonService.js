@@ -1,25 +1,29 @@
+const { parse } = require('dotenv')
 const Person = require('../model/Person')
 
-async function findPersonById(req, res){
+module.exports = {
 
-    // Extrair dado da requisição
-    const id = req.params.id
+    personExist: async function (id){
+        const person = await Person.exists({_id: id})
+        console.log(person)
+        return person
+    },
 
-    try {
+    findPersonById: async function findPersonById(id){
 
-        const person = await Person.findOne({_id: id})
-
-        if (!person) {
-            res.status(422).json({message:'Usuario nao encontrado'})
-            return    
+        try {
+            const person = await Person.findOne({_id: id})
+    
+            if (person) {
+                return person
+            } else {
+                return false
+            }
+           
         }
-
-        res.status(200).json(person)
-        
-    } catch (error) {
-        res.status(404).json({error: error})
-        
+        catch(err) {
+            console.log(err)
+        }
     }
+    
 }
-
-module.exports = findPersonById

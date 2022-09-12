@@ -2,6 +2,9 @@
 const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
+
+
+
 //Config EXPRESS
 const app = express()
 app.use(
@@ -10,6 +13,10 @@ app.use(
     }))
 
 app.use(express.json())
+
+
+//Config EXPRESS-VALIDATOR
+
 
 
 
