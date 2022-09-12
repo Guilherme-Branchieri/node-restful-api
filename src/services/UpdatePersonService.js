@@ -1,4 +1,4 @@
-const Person = require('../model/Person')
+const Person = require('../models/Person')
 
 
 module.exports = {

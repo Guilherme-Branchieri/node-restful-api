@@ -1,10 +1,10 @@
 const { json } = require('express')
-const Person = require('../model/Person')
-const createPerson = require('../service/CreatePersonService')
-const FindPeopleService = require('../service/FindPeopleService')
-const findPerson =  require('../service/FindPersonService')
-const UpdatePersonService = require('../service/UpdatePersonService.js')
-const DeletePersonService = require('../service/DeletePersonService')
+const Person = require('../models/Person')
+const createPerson = require('../services/CreatePersonService')
+const FindPeopleService = require('../services/FindPeopleService')
+const findPerson =  require('../services/FindPersonService')
+const UpdatePersonService = require('../services/UpdatePersonService.js')
+const DeletePersonService = require('../services/DeletePersonService')
 
 
 

@@ -1,17 +1,10 @@
-const Person = require('../model/Person')
-const findPersonById = require('./FindPersonService')
-
-
-
+const Person = require('../models/Person')
 
 async function createPerson(personObj){
     try {  
-            console.log(personObj)
-            console.log(personObj.id)
             const getPersonObj = await Person.findOne(personObj)
-            console.log(getPersonObj)
             if(getPersonObj){
-                return (false)
+                return(false)
             } else {
                 const insertPerson = await Person.create(personObj)
                 return(true)

@@ -1,7 +1,9 @@
 const router = require('express').Router()
-const controller = require('../controller/PersonController')
+const controller = require('../controllers/PersonController')
 const {body, validationResult} = require('express-validator')
-const Person = require('../model/Person')
+const Person = require('../models/Person')
+
+
 
 
 //Rotas de Person
@@ -17,10 +19,12 @@ router.post('/', (req,res, next) => {
     if(!name){
         return res.status(400).json({error : 'O campo nome é obrigatório!'})
     };
-
+    
     if(name.lenght < 3) {
         return res.status(400).json({error:'O nome precisa conter no minimo 3 caracteres!'})
     };
+
+
 
     //Validar email
     if(!email) {
@@ -35,7 +39,7 @@ router.post('/', (req,res, next) => {
     };
 
     if(isNaN(salary)){
-        return res.status(400).json({error:"O campo salário deve ser um número"})   
+        return res.status(400).json({error:"O campo salário deve ser um número"})
     };
 
     if(parseFloat(salary) < parseFloat(minSalary)){
